@@ -1,7 +1,7 @@
-## 下载字体
+# Customized Fira Code Font
+![Build custom font](https://github.com/gwy15/Fira-Code-Custom/workflows/Build%20custom%20font/badge.svg)
 
-## 开启的特性
-+ ss01: 无衬线 r
-+ ss03: 传统 & 符号
-+ ss05: 传统 @ 符号
-
+Enabled features:
++ ss01
++ ss03
++ ss05

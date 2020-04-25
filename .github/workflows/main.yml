@@ -26,10 +26,7 @@ jobs:
     - name: Freeze features
       run: make
     # upload
-    - name: zip for release
-      run: |
-        cd output && zip ../FiraCode.zip -r .
     - uses: actions/upload-artifact@v1
       with:
         name: FiraCode.zip
-        path: FiraCode.zip
+        path: output
