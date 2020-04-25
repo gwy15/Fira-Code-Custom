@@ -1,0 +1,35 @@
+name: Build custom font
+
+on:
+  [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup python
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.8'
+        architecture: 'x64'
+    # prepare
+    - name: Install fonttools-opentype-feature-freezer
+      run: pip install --upgrade git+https://github.com/twardoch/fonttools-opentype-feature-freezer
+    - name: Download latest FiraCode font
+      run: wget https://github.com/tonsky/FiraCode/releases/download/3.1/FiraCode_3.1.zip
+    - name: unzip to fira_code dir
+      run: unzip -qo -d fira_code FiraCode_3.1.zip
+    # freeze
+    - name: Freeze features
+      run: make
+    # upload
+    - name: zip for release
+      run: |
+        cd output && zip ../FiraCode.zip -r .
+    - uses: actions/upload-artifact@v1
+      with:
+        name: FiraCode.zip
+        path: FiraCode.zip
