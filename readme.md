@@ -11,3 +11,5 @@ Enabled features:
 Converted font files can be found in GitHub Actions' uploaded artifacts [here].
 
 [here]: https://github.com/gwy15/Fira-Code-Custom/actions
+
+It might expire.
